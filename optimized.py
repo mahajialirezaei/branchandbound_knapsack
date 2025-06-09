@@ -37,6 +37,9 @@ def recursive_func(x: list, p: list, w: list, l, b, cur_w):
         c = [0]
         if cur_w + w[l] <= b:
             c = [0, 1]
+        upper_b = upper_bound(p, w, l, b - cur_w)
+        if upper_b <= p_opt:
+            return
         for xl in c:
             x[l] = xl
             recursive_func(x, p, w, l + 1, b, cur_w + w[l] * xl)
