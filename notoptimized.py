@@ -22,3 +22,12 @@ def recursive_func(x: list, p: list, w: list, l, b, cur_w):
 
 
 
+x = [0, 0, 0]
+p = [1, 2, 3]
+w = [1, 2, 999]
+b = 1000
+x_opt = [0, 0, 0]
+p_opt = 0
+recursive_func(x, p, w, 0, b, 0)
+print(x_opt)
+print(p_opt)
