@@ -1,3 +1,24 @@
+def upper_bound(profits, weights, start_index, capacity):
+    items = []
+    for i in range(start_index, len(profits)):
+        if weights[i] > 0:
+            x = profits[i] / weights[i]
+            items.append((x, weights[i], profits[i]))
+    items.sort(key=lambda x: x[0], reverse=True)
+    b = 0
+    r = capacity
+    for x, weight, profit in items:
+        if r <= 0:
+            break
+        if weight <= r:
+            b += profit
+            r -= weight
+        else:
+            b += x * r
+            r = 0
+    return b
+
+
 def cal_product_ls(x: list, p: list):
     profit = sum(s * s1 for (s, s1) in zip(x, p))
     return profit
